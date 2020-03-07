@@ -1,2 +1,5 @@
 # Folder for virtual environment
 venv/
+
+# Ignore the .vscode-folder
+.vscode/
