@@ -3,3 +3,6 @@ venv/
 
 # Ignore the .vscode-folder
 .vscode/
+
+# Ignore the error coverage file
+portfolio/htmlcov/

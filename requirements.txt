@@ -1,3 +1,5 @@
 django
+djangorestframework
+coverage
 psycopg2
 Pillow
