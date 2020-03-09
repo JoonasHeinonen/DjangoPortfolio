@@ -8,9 +8,26 @@
     min-width: 100%;
 }
 
+.page-content {
+    width: 60em;
+    margin: 0 auto;
+    margin-bottom: 2em;
+}
+
 .page-header {
     margin: 0 auto;
     width: 40em;
+}
+
+@media only screen and (max-width: 60em) {
+    .page-content, .page-header {
+        width: 100%;
+    }
+    .page-content {
+        display: block;
+        margin: auto;
+        text-align: center;
+    }
 }
 
 .page-header h2 {
@@ -25,6 +42,7 @@
     min-width: 25em;
     max-width: 25em;
     padding: 2em;
+    margin-bottom: 0.5em;
 }
 
 .project-container img {
@@ -34,8 +52,8 @@
 }
 
 .project-desc {
-    min-height: 12em;
-    max-height: 12em;
+    min-height: 15em;
+    max-height: 15em;
 }
 
 .project-container h3 {
@@ -45,11 +63,12 @@
 .current-project {
     position: fixed;
     padding-bottom: 0;
-    margin-bottom: 0;
+    margin-bottom: -4em;
     bottom: 0;
     text-align: center;
-    background-color: white;
+    background-color: whitesmoke;
     width: 100%;
+    opacity: 0;
 }
 
 .current-project h4 {
@@ -60,27 +79,83 @@
     width: 2em;
     height: 2em;
     border-radius: 2em;
-    border: 3px solid;
+    border: 5px solid;
     margin: 1em auto;
     transition: 0.5s;
+    position: absolute;
 }
 
 .play-link:hover {
     transition: 0.5s;
 }
 
-.available {
+.play-link {
+    background-color: lightgreen;
     border-color: #22bb50;
 }
 
-.available:hover {
+.play-link:hover {
     border-color: green;
 }
 
 .unavailable {
-    border-color: darkgrey;
+    border-color: crimson;
+    background-color: rgb(255, 100, 100);
 }
 
 .unavailable:hover {
-    border-color: grey;
+    border-color: rgb(150, 0, 30);
+}
+
+.pic {
+    margin: 7px 15px;
+    display: inline-block;
+    width: 0; 
+    height: 0; 
+}
+
+.close {
+    display: none;
+    width: 3em;
+    height: 3em;
+    border: 0.2em solid right;
+    border-radius: 50%;
+    margin-left: 1.5em;
+}
+
+.close:after {
+    content: '';
+    display: inline-block;
+    margin-top: 0.6em;
+    margin-left: -0.95em;
+    width: 0.7em;
+    height: 0.3em;
+    border-top: 0.3em solid crimson;
+    border-right: 0.3em solid crimson;
+    -moz-transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+}
+
+.arrow-right {
+    display: inline-block;
+    width: 3em;
+    height: 3em;
+    border: 0.2em solid right;
+    border-radius: 50%;
+    margin-left: 1.5em;
+}
+
+.arrow-right:after {
+    content: '';
+    display: inline-block;
+    margin-top: 0.5em;
+    margin-left: -1em;
+    width: 0.7em;
+    height: 0.7em;
+    border-top: 0.3em solid #22bb50;
+    border-right: 0.3em solid #22bb50;
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
 }
