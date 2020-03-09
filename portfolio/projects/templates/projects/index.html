@@ -2,15 +2,51 @@
 {% block content %}
     {% if project_list %}
         <div class="site-content">
-            <h1>My Portfolio</h1>
+            <div class="page-header">
+                <h2>My portfolio</h2>
+                <p>This page includes most of my spare-time programming projects. No internship nor work projects included.</p>
+            </div>
             {% for project in project_list %}
                 <div class="project-container">
-                    <img src="{{ project.image.url }}" class="project-image" />
-                    <h3>{{ project.title }}</h3>
-                    <p>{{ project.description }}</p>
-                    <p>Link: <a href="{{ project.link }}">{{ project.link }}</a></p>
+                    <div class="project-img">
+                        <img src="{{ project.image.url }}" class="project-image" />
+                    </div>
+                    <div class="project-desc">
+                        <h3>{{ project.title }}</h3>
+                        <p>{{ project.description }}</p>
+                        <p>Link: <a href="{{ project.link }}">{{ project.link }}</a></p>
+                        <div class="play-link-container">
+                            {% if project.play_link %}
+                                <a href="{{ project.play_link }}">
+                                    <div class="play-link available"></div>
+                                </a>
+                            {% else %}
+                                <div class="play-link unavailable"></div>
+                            {% endif %}
+                        </div>
+                    </div>
                 </div>
             {% endfor %}
         </div>
+        <div class="current-project">
+            <h4>No project being viewed</h4>
+        </div>
     {% endif %}
+
+    <script type="text/javascript">
+        $(function () {
+            $('.project-container').hover(function () {
+                var text = $(this).find("h3").text();
+                $(".current-project").find('h4').text(text);
+                $( this ).css("transition", "0.5s");
+                $( this ).css("background-color", "lightskyblue");
+            });
+            $('.project-container').mouseleave(function () {
+                $(".current-project").find('h4').text("No project being viewed");
+                $( this ).css("transition", "0.5s");
+                $( this ).css("background-color", "lightblue");
+            });
+        });
+    </script>
+
 {% endblock %}
